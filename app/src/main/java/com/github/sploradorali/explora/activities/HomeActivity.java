@@ -8,9 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.github.sploradorali.explora.R;
-import com.github.sploradorali.explora.database.Access;
 import com.github.sploradorali.explora.database.Implementation;
-import com.github.sploradorali.explora.entities.Profiles;
+import com.github.sploradorali.explora.entities.Profile;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -42,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Profiles profile = new Profiles();
+                Profile profile = new Profile();
                 profile.setUserName("example");
                 dbImplementation.access().insertSingleProfile(profile);
             }
@@ -55,10 +54,10 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
-                            Profiles selected = dbImplementation.access().fetchSingleProfileById(0);
+                            Profile selected = dbImplementation.access().fetchSingleProfileById(0);
                             editText.setText(
                                     "ID: " +
-                                            selected.getProfileId()
+                                            selected.getId()
                                             + "\n"
                                             + "Username: " +
                                             selected.getUserName()

@@ -2,23 +2,22 @@ package com.github.sploradorali.explora.entities;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
 
-@Entity
-public class Profiles {
+@Entity (tableName = "profiles")
+public class Profile {
     @PrimaryKey (autoGenerate = true)
-    private int profileId;
+    private int id;
     private String userName;
 
-    public Profiles() {
+    public Profile() {
     }
 
-    public int getProfileId() {
-        return profileId;
+    public int getId() {
+        return id;
     }
 
-    public void setProfileId(int profileId) {
-        this.profileId = profileId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUserName() {
